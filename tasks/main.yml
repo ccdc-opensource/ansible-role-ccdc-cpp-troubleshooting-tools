@@ -1,0 +1,38 @@
+---
+- name: Install troubleshooting command line packages (Centos)
+  yum: 
+    name:
+      - strace
+      - htop
+      - valgrind
+    state: latest
+  when: "ansible_os_family == 'RedHat'"
+
+- name: Install troubleshooting command line packages (Debian)
+  yum: 
+    name:
+      - strace
+      - htop
+      - valgrind
+    state: latest
+  when: "ansible_os_family == 'Debian'"
+  
+- name: Install troubleshooting command line packages (MacOS)
+  homebrew:
+    name:
+      - 'm-cli'
+      - clang-format
+      - midnight-commander
+      - sqldiff
+      - sqlite
+      - ctags
+      - screen
+    state: present
+  when: "ansible_os_family == 'Darwin'"
+
+- name: Install troubleshooting command line packages (windows)
+  win_chocolatey:
+    name: 
+      - mc
+    state: present
+  when: "ansible_os_family == 'Windows'"
