@@ -6,6 +6,7 @@
       - htop
       - valgrind
     state: latest
+    use_backend: yum
   when: "ansible_os_family == 'RedHat'"
 
 - name: Install troubleshooting command line packages (Debian)
@@ -15,6 +16,7 @@
       - htop
       - valgrind
     state: latest
+    use_backend: yum
   when: "ansible_os_family == 'Debian'"
   
 - name: Install troubleshooting command line packages (MacOS)
