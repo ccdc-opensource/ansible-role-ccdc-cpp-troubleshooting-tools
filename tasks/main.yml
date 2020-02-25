@@ -8,9 +8,10 @@
     state: latest
     use_backend: yum
   when: "ansible_os_family == 'RedHat'"
+  become: yes
 
 - name: Install troubleshooting command line packages (Debian)
-  yum: 
+  apt: 
     name:
       - strace
       - htop
@@ -18,7 +19,8 @@
     state: latest
     use_backend: yum
   when: "ansible_os_family == 'Debian'"
-  
+  become: yes
+
 - name: Install troubleshooting command line packages (MacOS)
   homebrew:
     name:
