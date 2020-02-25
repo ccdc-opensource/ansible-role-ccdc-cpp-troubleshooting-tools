@@ -1,0 +1,12 @@
+---
+  - name: Install troubleshooting command line packages
+    homebrew:
+      name:
+        - 'm-cli'
+        - clang-format
+        - midnight-commander
+        - sqldiff
+        - sqlite
+        - ctags
+        - screen
+      state: present

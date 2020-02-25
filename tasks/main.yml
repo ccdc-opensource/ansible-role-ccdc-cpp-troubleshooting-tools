@@ -1,42 +1,9 @@
 ---
-- name: Install troubleshooting command line packages (Centos)
-  yum: 
-    name:
-      - strace
-      - htop
-      - valgrind
-    state: latest
-    use_backend: yum
-  when: "ansible_os_family == 'RedHat'"
-  become: yes
-
-- name: Install troubleshooting command line packages (Debian)
-  apt: 
-    name:
-      - strace
-      - htop
-      - valgrind
-    state: latest
-    use_backend: yum
-  when: "ansible_os_family == 'Debian'"
-  become: yes
-
-- name: Install troubleshooting command line packages (MacOS)
-  homebrew:
-    name:
-      - 'm-cli'
-      - clang-format
-      - midnight-commander
-      - sqldiff
-      - sqlite
-      - ctags
-      - screen
-    state: present
-  when: "ansible_os_family == 'Darwin'"
-
-- name: Install troubleshooting command line packages (windows)
-  win_chocolatey:
-    name: 
-      - mc
-    state: present
-  when: "ansible_os_family == 'Windows'"
+  - name: Set up troubleshooting tools
+    include_tasks: "{{ item }}"
+    with_first_found:
+      - "{{ ansible_os_family }}-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      - "{{ ansible_os_family }}-{{ ansible_distribution }}.yml"
+      - "{{ ansible_os_family }}.yml"
+      - "{{ ansible_system }}.yml"
+  

@@ -1,0 +1,10 @@
+---
+  - name: Install troubleshooting command line packages
+    apt: 
+      name:
+        - strace
+        - htop
+        - valgrind
+      state: latest
+      use_backend: yum
+    become: yes

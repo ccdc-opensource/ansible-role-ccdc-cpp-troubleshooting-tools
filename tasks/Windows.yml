@@ -1,0 +1,6 @@
+---
+  - name: Install troubleshooting command line packages
+    win_chocolatey:
+      name: 
+        - mc
+      state: present
