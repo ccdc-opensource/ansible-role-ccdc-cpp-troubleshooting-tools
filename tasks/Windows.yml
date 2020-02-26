@@ -3,4 +3,12 @@
     win_chocolatey:
       name: 
         - mc
+        - sysinternals
       state: present
+
+  - name: Accept Sysinternals EULA
+    win_regedit:
+      path: "HKCU:\SOFTWARE\Sysinternals"
+      name: EulaAccepted
+      data: 1
+      type: dword
