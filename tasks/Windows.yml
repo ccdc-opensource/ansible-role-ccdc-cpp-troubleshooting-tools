@@ -8,7 +8,7 @@
 
   - name: Accept Sysinternals EULA
     win_regedit:
-      path: "HKCU:\SOFTWARE\Sysinternals"
+      path: 'HKCU:\SOFTWARE\Sysinternals'
       name: EulaAccepted
       data: 1
       type: dword
