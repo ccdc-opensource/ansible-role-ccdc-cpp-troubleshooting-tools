@@ -2,9 +2,7 @@
 - name: Install troubleshooting command line packages
   yum: 
     name:
-      - "strace"
       - "htop"
-      - "valgrind"
     state: latest
     use_backend: yum
   become: yes
