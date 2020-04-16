@@ -1,12 +1,9 @@
 ---
 - name: Install troubleshooting command line packages
-  yum: 
+  homebrew:
     name:
-      - strace
       - valgrind
       - htop
       - mc
       - ncdu
-    state: latest
-    use_backend: yum
-  become: yes
+    state: present

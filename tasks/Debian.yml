@@ -6,5 +6,6 @@
         - htop
         - valgrind
         - mc
+        - ncdu
       state: latest
     become: yes
