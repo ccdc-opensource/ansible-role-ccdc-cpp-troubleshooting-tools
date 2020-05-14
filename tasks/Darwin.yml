@@ -2,7 +2,6 @@
 - name: Install troubleshooting command line packages
   homebrew:
     name:
-      - valgrind
       - htop
       - mc
       - ncdu
