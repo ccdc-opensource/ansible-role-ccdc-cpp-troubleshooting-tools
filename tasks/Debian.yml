@@ -1,11 +1,11 @@
 ---
-  - name: Install troubleshooting command line packages
-    apt: 
-      name:
-        - strace
-        - htop
-        - valgrind
-        - mc
-        - ncdu
-      state: latest
-    become: yes
+- name: Install troubleshooting command line packages
+  apt:
+    name:
+      - strace
+      - htop
+      - valgrind
+      - mc
+      - ncdu
+    state: present
+  become: true
