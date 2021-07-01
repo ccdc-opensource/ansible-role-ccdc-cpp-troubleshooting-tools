@@ -40,7 +40,7 @@ None.
 
     - hosts: all
       roles:
-        - ccdc-cpp-troubleshooting-tools
+        - ccdc.cpp_troubleshooting_tools
 
 ## License
 
