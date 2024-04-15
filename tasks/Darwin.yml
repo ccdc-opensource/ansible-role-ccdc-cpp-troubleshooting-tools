@@ -1,8 +1,11 @@
 ---
-- name: Install troubleshooting command line packages
-  homebrew:
-    name:
+- name: Install Homebrew + troubleshooting command line packages
+  ansible.builtin.include_role:
+    name: geerlingguy.mac.homebrew
+  vars:
+    # This is overwritten by our group_vars (cpp.build-machines)
+    homebrew_installed_packages:
       - htop
       - mc
       - ncdu
-    state: present
+  when: not cpp_buildmachine
