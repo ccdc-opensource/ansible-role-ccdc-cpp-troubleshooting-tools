@@ -1,5 +1,5 @@
 ---
-- name: Insall Homebrew + troubleshooting command line packages
+- name: Install Homebrew + troubleshooting command line packages
   ansible.builtin.include_role:
     name: geerlingguy.mac.homebrew
   vars:
